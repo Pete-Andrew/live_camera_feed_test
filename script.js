@@ -4,7 +4,9 @@
     try {
         // Request access to the camera
         const stream = await navigator.mediaDevices.getUserMedia({
-            video: true,
+            video: {
+                facingMode: { exact: 'environment' }
+            },
             audio: false
         });
 
