@@ -25,6 +25,7 @@ async function startCamera(facingMode) {
     } catch (err) {
         console.error("Error accessing the camera: ", err);
         if (err.name === 'OverconstrainedError') {
+            console.log("no alternative camera available");
             console.error(`The requested facingMode: ${facingMode} is not available.`);
         }
     }
