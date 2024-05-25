@@ -4,6 +4,9 @@ let currentFacingMode = 'user'; // Default to front camera
 let paused = false;
 
 async function startCamera(facingMode) {
+    paused = false;
+    pauseButton.textContent = "Pause";
+    
     const video = document.getElementById('camera-feed');
 
     // Stop any existing video stream
@@ -41,7 +44,7 @@ document.getElementById('toggle-camera-button').addEventListener('click', () => 
 
 pauseButton.addEventListener('click', () => {
     
-    pauseButton.textContent = !paused ? "Paused" : "Show Hz Grid";
+    pauseButton.textContent = paused ? "Pause" : "Play";
     if (paused == false) {
     paused = true;
     const video = document.getElementById('camera-feed');
