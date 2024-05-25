@@ -1,12 +1,17 @@
-(async function() {
+let currentFacingMode = 'user'; // Default to front camera
+
+async function startCamera(facingMode) {
     const video = document.getElementById('camera-feed');
 
+    // Stop any existing video stream
+    if (video.srcObject) {
+        video.srcObject.getTracks().forEach(track => track.stop());
+    }
+
     try {
-        // Request access to the camera
+        // Request access to the camera with the specified facingMode
         const stream = await navigator.mediaDevices.getUserMedia({
-            video: {
-                facingMode: { exact: 'environment' }
-            },
+            video: { facingMode: facingMode },
             audio: false
         });
 
@@ -19,5 +24,17 @@
         };
     } catch (err) {
         console.error("Error accessing the camera: ", err);
+        if (err.name === 'OverconstrainedError') {
+            console.error(`The requested facingMode: ${facingMode} is not available.`);
+        }
     }
-})();
+}
+
+document.getElementById('toggle-button').addEventListener('click', () => {
+    // Toggle the facing mode
+    currentFacingMode = currentFacingMode === 'user' ? 'environment' : 'user';
+    startCamera(currentFacingMode);
+});
+
+// Start with the default camera
+startCamera(currentFacingMode);

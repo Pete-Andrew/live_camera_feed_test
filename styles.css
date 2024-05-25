@@ -1,19 +1,38 @@
-#camera-container {
-    width: 100%;
-    height: 100vh; /* Full height of the viewport */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #F5F5F5;
-    
+/* Ensure the entire page takes the full viewport height */
+html, body {
+    height: 100%;
+    margin: 0;
 }
 
+/* Container to center the video */
+#camera-container {
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    width: 100%; /* Full width */
+    height: 100vh; /* Full height of the viewport */
+    background-color: #f3f3f3; /* Optional: background color for contrast */
+}
+
+/* Style the video element */
 #camera-feed {
-    width: 100%;
+    width: 100%; /* Adjust as needed */
     height: auto;
-    max-width: 800px; /* Limit the max width for better visibility */
-    justify-content: center;
-    align-items: center;
-    border: 10px solid #000000; /* 5px green border */
-    border-radius: 20px; /* Optional: rounded corners */
+    max-width: 600px; /* Limit the max width for better visibility */
+    border: 5px solid #000000; /* 5px green border */
+    border-radius: 10px; /* Optional: rounded corners */
+}
+
+/* Style the toggle button */
+#toggle-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    background-color: #00FF00;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
 }
