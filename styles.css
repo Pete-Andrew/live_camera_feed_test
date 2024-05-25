@@ -4,11 +4,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #000;
+    background-color: #F5F5F5;
+    
 }
 
 #camera-feed {
     width: 100%;
     height: auto;
-    max-width: 600px; /* Limit the max width for better visibility */
+    max-width: 800px; /* Limit the max width for better visibility */
+    justify-content: center;
+    align-items: center;
+    border: 10px solid #000000; /* 5px green border */
+    border-radius: 20px; /* Optional: rounded corners */
 }
