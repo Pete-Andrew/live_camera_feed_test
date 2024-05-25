@@ -11,7 +11,7 @@ html, body {
     align-items: center; /* Center vertically */
     width: 100%; /* Full width */
     height: 100vh; /* Full height of the viewport */
-    background-color: #f3f3f3; /* Optional: background color for contrast */
+    background-color: #000; /* Optional: background color for contrast */
 }
 
 /* Style the video element */
@@ -19,15 +19,14 @@ html, body {
     width: 100%; /* Adjust as needed */
     height: auto;
     max-width: 600px; /* Limit the max width for better visibility */
-    border: 5px solid #000000; /* 5px green border */
+    border: 5px solid #00FF00; /* 5px green border */
     border-radius: 10px; /* Optional: rounded corners */
 }
 
-/* Style the toggle button */
-#toggle-button {
+/* Style the buttons */
+button {
     position: absolute;
     top: 10px;
-    right: 10px;
     padding: 10px 20px;
     background-color: #00FF00;
     color: #000;
@@ -35,4 +34,12 @@ html, body {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+}
+
+#toggle-camera-button {
+    right: 150px; /* Position the button */
+}
+
+#pause-button {
+    right: 10px; /* Position the button */
 }

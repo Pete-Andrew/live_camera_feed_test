@@ -1,4 +1,7 @@
+const pauseButton = document.getElementById('pause-button');
+
 let currentFacingMode = 'user'; // Default to front camera
+let paused = false;
 
 async function startCamera(facingMode) {
     const video = document.getElementById('camera-feed');
@@ -25,16 +28,32 @@ async function startCamera(facingMode) {
     } catch (err) {
         console.error("Error accessing the camera: ", err);
         if (err.name === 'OverconstrainedError') {
-            console.log("no alternative camera available");
             console.error(`The requested facingMode: ${facingMode} is not available.`);
         }
     }
 }
 
-document.getElementById('toggle-button').addEventListener('click', () => {
+document.getElementById('toggle-camera-button').addEventListener('click', () => {
     // Toggle the facing mode
     currentFacingMode = currentFacingMode === 'user' ? 'environment' : 'user';
     startCamera(currentFacingMode);
+});
+
+pauseButton.addEventListener('click', () => {
+    
+    pauseButton.textContent = !paused ? "Paused" : "Show Hz Grid";
+    if (paused == false) {
+    paused = true;
+    const video = document.getElementById('camera-feed');
+    video.pause()
+    console.log("video paused");
+
+} else {
+    paused = false;
+    startCamera(currentFacingMode);
+    console.log("video un-paused"); 
+    }
+
 });
 
 // Start with the default camera
